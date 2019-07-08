@@ -1,0 +1,124 @@
+# pm = pembilang
+# py = penyebut
+# b = bulat
+# ha = hasil
+from fractions import Fraction as F
+
+print("PROGRAM MENGHITUNG BILANGAN PECAHAN CAMPURAN")
+print("1. penambahan")
+print("2. pengurangan")
+print("3. perkalian")
+print("4. pembagian")
+pilih = input("Masukkan pilihan : ")
+
+if pilih == 1:
+    b1 = input("masukan Bulat 1     : ")
+    pm1 = input("Masukan Pembilang 1 : ")
+    py1 = input("Masukan Penyebut  1 : ")
+    b2 = input("Masukan Bulat 2     : ")
+    pm2 = input("Masukan Pembilang 2 : ")
+    py2 = input("Masukan Penyebut  2 : ")
+    print "----------------------"
+    print " ", pm1, " ", " ", pm2
+    print b1, "-", "+", b2, "-"
+    print " ", py1, " ", " ", py2
+    pm1 = (py1 * b1) + pm1
+    pm2 = (py2 * b2) + pm2
+    print "----------------------"
+    print pm1, " ", pm2
+    print "-", "+", "-"
+    print py1, " ", py2
+    ha = F(pm1, py1) + F(pm2, py2)
+    print "----------------------"
+    py = py1 * py2
+    pm1 = (py / py1) * pm1
+    pm2 = (py / py2) * pm2
+    print pm1, " ", pm2
+    print "-", "+", "-"
+    print py, " ", py
+    print "----------------------"
+    print ha
+
+elif pilih == 2:
+    b1 = input("masukan Bulat 1     : ")
+    pm1 = input("Masukan Pembilang 1 : ")
+    py1 = input("Masukan Penyebut  1 : ")
+    b2 = input("Masukan Bulat 2     : ")
+    pm2 = input("Masukan Pembilang 2 : ")
+    py2 = input("Masukan Penyebut  2 : ")
+    print "----------------------"
+    print " ", pm1, " ", " ", pm2
+    print b1, "-", "-", b2, "-"
+    print " ", py1, " ", " ", py2
+    pm1 = (py1 * b1) + pm1
+    pm2 = (py2 * b2) + pm2
+    print "----------------------"
+    print pm1, " ", pm2
+    print "-", "-", "-"
+    print py1, " ", py2
+    ha = F(pm1, py1) - F(pm2, py2)
+    print "----------------------"
+    py = py1 * py2
+    pm1 = (py / py1) * pm1
+    pm2 = (py / py2) * pm2
+    print pm1, " ", pm2
+    print "-", "-", "-"
+    print py, " ", py
+    print "----------------------"
+    print ha
+
+elif pilih == 3:
+    b1 = input("masukan Bulat 1     : ")
+    pm1 = input("Masukan Pembilang 1 : ")
+    py1 = input("Masukan Penyebut  1 : ")
+    b2 = input("Masukan Bulat 2     : ")
+    pm2 = input("Masukan Pembilang 2 : ")
+    py2 = input("Masukan Penyebut  2 : ")
+    print "----------------------"
+    print " ", pm1, " ", " ", pm2
+    print b1, "-", "x", b2, "-"
+    print " ", py1, " ", " ", py2
+    pm1 = (py1 * b1) + pm1
+    pm2 = (py2 * b2) + pm2
+    print "----------------------"
+    print pm1, " ", pm2
+    print "-", "x", "-"
+    print py1, " ", py2
+    ha = F(pm1, py1) * F(pm2, py2)
+    print "----------------------"
+    pm = pm1 * pm2
+    py = py1 * py2
+    print pm
+    print "-"
+    print py
+    print "----------------------"
+    print ha
+
+elif pilih == 4:
+    b1 = input("masukan Bulat 1     : ")
+    pm1 = input("Masukan Pembilang 1 : ")
+    py1 = input("Masukan Penyebut  1 : ")
+    b2 = input("Masukan Bulat 2     : ")
+    pm2 = input("Masukan Pembilang 2 : ")
+    py2 = input("Masukan Penyebut  2 : ")
+    print "----------------------"
+    print " ", pm1, " ", " ", pm2
+    print b1, "-", ":", b2, "-"
+    print " ", py1, " ", " ", py2
+    pm1 = (py1 * b1) + pm1
+    pm2 = (py2 * b2) + pm2
+    print "----------------------"
+    print pm1, " ", pm2
+    print "-", ":", "-"
+    print py1, " ", py2
+    ha = F(pm1, py1) / F(pm2, py2)
+    print "----------------------"
+    pm = pm1 * py2
+    py = py1 * pm2
+    print pm
+    print "-"
+    print py
+    print "----------------------"
+    print ha
+else:
+    print "ERROR INPUT!, Please try again"
