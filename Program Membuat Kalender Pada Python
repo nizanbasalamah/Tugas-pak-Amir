@@ -1,0 +1,8 @@
+#import calendar
+import calendar
+
+tahun = input("Masukkan Tahun : ")
+bulan = input("Masukkan bulan : ")
+
+print "\n"
+print (calendar.month(tahun, bulan))
