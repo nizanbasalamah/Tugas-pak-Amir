@@ -1,0 +1,98 @@
+public class pecahan {
+    int bulat,pembilang,penyebut;
+     
+    pecahan(){
+        bulat=0;pembilang=0;penyebut=1;
+    }
+    pecahan(int x){
+        bulat=x;pembilang=0;penyebut=1;
+    }
+    pecahan(int x,int y){
+        bulat=0;pembilang=x;penyebut=y;
+    }
+    pecahan(int x,int y,int z){
+        bulat=x;pembilang=y;penyebut=z;
+    }
+    int fpb(int x,int y){
+        if(y==0)return(x);
+        else return (fpb(y,x%y));
+    }
+     
+    void reduksi(){
+        int temp=fpb(pembilang,penyebut);
+        pembilang=pembilang/temp;
+        penyebut=penyebut/temp;
+        if(pembilang>=penyebut){
+            bulat=pembilang/penyebut;
+            pembilang=pembilang%penyebut;
+        }
+        else bulat=0;
+                
+        }
+    pecahan tambah(pecahan X){
+        pecahan T= new pecahan();
+        T.bulat=0;
+         
+        T.pembilang=(bulat*penyebut+pembilang)*X.penyebut+penyebut*(X.bulat*X.penyebut+X.pembilang);
+        T.penyebut=penyebut*X.penyebut;
+        T.reduksi();
+        return T;
+    }
+     pecahan kurang(pecahan X){
+         pecahan T=new pecahan();
+         T.bulat=0;
+          
+         T.pembilang=(bulat*penyebut+pembilang)*X.penyebut;
+          
+         T.penyebut=penyebut*(X.bulat*X.penyebut+X.pembilang);
+         T.reduksi();
+         return T;
+     }
+     pecahan kali(pecahan X){
+         pecahan T=new pecahan();
+         T.bulat=0;
+          
+         T.pembilang= (bulat*penyebut+pembilang)*(X.bulat*X.penyebut+X.pembilang);
+         T.penyebut=penyebut*X.penyebut;
+         T.reduksi();
+         return T;
+     }
+     pecahan bagi(pecahan X){
+         pecahan T=new pecahan();
+         T.bulat=0;
+          
+         T.pembilang= (bulat*penyebut+pembilang)*X.penyebut;
+         T.penyebut=penyebut*(X.bulat*X.penyebut+X.pembilang);
+         T.reduksi();
+         return T;
+     }
+     String toStr(){
+         String T="";
+         if(penyebut==1)
+             if(pembilang==0)
+                 T=T+bulat;
+             else{
+                 T=T+(bulat+pembilang);
+                 pembilang=0;
+             }
+         else if(bulat==0)
+             T=T+pembilang+"/"+penyebut;
+                 else
+                 T=T+bulat+" "+pembilang+"/"+penyebut;
+                 return (T);
+                  
+             }
+     public static void main(String[]args){
+         pecahan p=new pecahan (2,4);
+         pecahan p1=new pecahan ();
+         pecahan p2=new pecahan (2);
+         pecahan p3=new pecahan (5,2,3);
+          
+         System.out.println("\nContoh Operasi Penjumlahan Pecahan");
+         System.out.println(p.toStr()+" + "+p3.toStr()+ " = " +p.tambah(p3).toStr());
+         System.out.println("\nContoh Operasi Gabungan Pecahan ");
+         System.out.println(p.toStr()+ " : "+p2.toStr()+ " X "+p3.toStr()+" + "+p2.toStr()+" = " );
+         p2=p2.tambah(p3.kali(p.bagi(p2)));
+         System.out.println(p2.toStr());  
+    }
+}
